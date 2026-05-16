@@ -17,7 +17,7 @@ npm install fastify-cli@5.8.0
 ./node_modules/.bin/fastify generates mock-srv
 cd mock-srv
 npm install
-npm install @fastify/cors --save
+npm install @fastify/cors@8.5.0 --save
 ```
 - Finally:
 ```sh
