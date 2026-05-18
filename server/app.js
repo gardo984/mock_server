@@ -5,12 +5,14 @@ const AutoLoad = require('@fastify/autoload')
 const cors = require('@fastify/cors')
 
 // Pass --options via CLI arguments in command to enable these options.
-module.exports.options = {}
+module.exports.options = {
+  // exposeHeadRoute: false // avoid to generate HEAD method automatically by route
+}
 
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
 
-  fastify.register(cors)
+  await fastify.register(cors)
 
   // Do not touch the following lines
 

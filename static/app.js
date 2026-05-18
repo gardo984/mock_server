@@ -36,9 +36,11 @@ let socket = null
 
 const realTimeOrders = (category) => {
   if (socket) socket.close()
-  socket = new WebSocket(`${WS_API}/orders/${category}`)
+  socket = new WebSocket(`${WS_API}/orders/?category=${category}`)
+  console.log("initializing socket")
   socket.addEventListener('message', ({ data }) => {
     try {
+      console.log(`new msg: ${data}`)
       const { id, total } = JSON.parse(data)
       const item = document.querySelector(`[data-id="${id}"]`)
       if (item == null) return
@@ -56,6 +58,7 @@ category.addEventListener("change", async ({ target }) => {
   console.log("target: ", target.value)
   registrationForm.style.display = 'block'
   await populateProducts(target.value)
+  realTimeOrders(target.value)
 })
 
 registrationForm.addEventListener('submit', async (e) => {
