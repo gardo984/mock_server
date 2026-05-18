@@ -9,17 +9,29 @@ node -e "require('node:fs').mkdirSync('static')"
 node -e "fs.unlinkSync('server.js')"
 ```
 
-## Fastify
+## Frontend
 
-- Recommended version `fastify-cli@5.8.0`:
+Run the following command:
+```sh
+serve -p 8080 static/
+```
+
+## Backend
+
+> #### Important
+> Recommended version `fastify-cli@5.8.0`.
+
+- To generate a new project:
 ```sh
 npm install fastify-cli@5.8.0
-./node_modules/.bin/fastify generates mock-srv
-cd mock-srv
+./node_modules/.bin/fastify generates server
+cd server
 npm install
-npm install @fastify/cors@8.5.0 --save
 ```
-- Finally:
+
+- To install run application:
 ```sh
-npm run start
+cd server
+npm install
+npm run dev
 ```
