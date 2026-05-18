@@ -29,7 +29,7 @@ cd server
 npm install
 ```
 
-- To install run application:
+- To install app dependencies and run it:
 ```sh
 cd server
 npm install
