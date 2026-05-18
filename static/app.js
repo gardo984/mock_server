@@ -35,9 +35,13 @@ const registrationForm = document.getElementById("add")
 let socket = null
 
 const realTimeOrders = (category) => {
-  if (socket) socket.close()
-  socket = new WebSocket(`${WS_API}/orders/?category=${category}`)
-  console.log("initializing socket")
+  if (socket === null)  {
+    socket = new WebSocket(`${WS_API}/orders/?category=${category}`)
+    console.log("initializing socket")
+  } else {
+    socket.send(JSON.stringify({cmd: 'update-category', payload: {category}}))
+    console.log("send msg to websocket server")
+  }
   socket.addEventListener('message', ({ data }) => {
     try {
       console.log(`new msg: ${data}`)
@@ -49,7 +53,7 @@ const realTimeOrders = (category) => {
       span.textContent = total
       item.appendChild(span)
     } catch (err) {
-      console.log(err);
+      console.log(`Error: ${err.toString()}, payload:`, data);
     }
   })
 }
