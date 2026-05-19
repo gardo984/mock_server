@@ -1,13 +1,4 @@
-# Notes
-
-- To create a directory:
-```sh
-node -e "require('node:fs').mkdirSync('static')"
-```
-- To remove a directory:
-```sh
-node -e "fs.unlinkSync('server.js')"
-```
+# Mock App
 
 ## Frontend
 
@@ -34,4 +25,15 @@ npm install
 cd server
 npm install
 npm run dev
+```
+
+## Helpers
+
+- To create a directory:
+```sh
+node -e "require('node:fs').mkdirSync('static')"
+```
+- To remove a directory:
+```sh
+node -e "fs.unlinkSync('server.js')"
 ```

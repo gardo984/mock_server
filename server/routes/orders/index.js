@@ -43,6 +43,8 @@ module.exports = async function (fastify, opts) {
 	})
 
 	fastify.post('/:id', async (request) => {
+		fastify.log.info('url params: %o', request.params)
+		fastify.log.info('body payload: %o', request.body)
 		const product_id = request.params.id
 		fastify.addOrder(product_id, request.body.amount)
 		return { ok: true }
