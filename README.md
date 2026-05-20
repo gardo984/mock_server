@@ -29,11 +29,4 @@ npm run dev
 
 ## Helpers
 
-- To create a directory:
-```sh
-node -e "require('node:fs').mkdirSync('static')"
-```
-- To remove a directory:
-```sh
-node -e "fs.unlinkSync('server.js')"
-```
+For major references about node JS **core packages** take a look into the script `orderFiles.js`.
