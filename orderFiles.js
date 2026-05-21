@@ -28,9 +28,9 @@ function getAllFiles(dirPath, recursive = false, files = []) {
 	var items = (fs.readdirSync(dirPath, { withFileTypes: true }))
 	for (const item of items) {
 		if (!item.isFile() && recursive) {
-			getAllFiles(path.join(item.parentPath, item.name), recursive, files)
+			getAllFiles(path.join(dirPath, item.name), recursive, files)
 		} else {
-			files.push(item)
+			files.push({ name: item.name, path: dirPath })
 		}
 	}
 	return files.map(file => {
